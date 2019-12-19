@@ -7,7 +7,7 @@ server:
 zuul:
   routes:
     api-a:
-      path:  /set/**
+      path:  /set1/**
       serviceId: st-service-set-server
     api-b:
       path: /info/**
