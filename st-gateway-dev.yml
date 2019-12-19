@@ -18,6 +18,8 @@ zuul:
     api-d:
       path: /supply/**
       serviceId: st-service-supply-server
+    api-other:
+      path: /**
   host:
     connect-timeout-millis: 60000
     socket-timeout-millis: 60000
