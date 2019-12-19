@@ -1,0 +1,47 @@
+spring:
+  boot:
+    admin:
+      probed-endpoints: health,env,metrics,httptrace:trace,threaddump:dump,jolokia,info,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents
+server:
+  port: 5000
+zuul:
+  routes:
+    api-a:
+      path:  /set/**
+      serviceId: st-service-set-server
+    api-b:
+      path: /info/**
+      serviceId: st-service-info-server
+    api-c:
+      path: /common/**
+      serviceId: st-service-common-server
+    api-d:
+      path: /supply/**
+      serviceId: st-service-supply-server
+    api-other:
+      path: /**
+  host:
+    connect-timeout-millis: 60000
+    socket-timeout-millis: 60000
+  sensitive-headers:
+  prefix: /
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+logging:
+  file: logs/st-gateway.log
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 120000
+ribbon:
+  ReadTimeout: 30000
+  ConnectTimeout: 30000
