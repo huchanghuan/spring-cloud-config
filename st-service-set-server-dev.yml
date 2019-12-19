@@ -1,5 +1,5 @@
 foo:
-  name: hch1
+  name: hch2
 server:
   port: 8762
 management:
