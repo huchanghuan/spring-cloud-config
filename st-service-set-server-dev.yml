@@ -1,2 +1,4 @@
 foo:
   name: hch
+server:
+  port: 8762
